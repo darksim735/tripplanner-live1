@@ -3,14 +3,16 @@ var dayRouter = require('express').Router();
 var attractionRouter = require('./attraction'); 
 var models = require('../models');
 
-
+dayRouter.use(function(req,res,next) {
+  console.log('getting here')
+  next()
+})
 // GET /days
-dayRouter.get('/days', function (req, res, next) {
+dayRouter.get('/', function (req, res, next) {
     // serves up all days as json
     
     // looking in database for the days information
     // and storing locally in variable
-    alert("next look up database");
 
     /*
     db.Day.find(function(err, days){

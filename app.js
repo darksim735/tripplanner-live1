@@ -24,9 +24,8 @@ app.use(sassMiddleware({
 // serve static files
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/public'));
-
 // serve root
-app.get('/', require('./routes'));
+app.use('/', require('./routes'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -43,7 +42,6 @@ app.use(function(err, req, res, next) {
         error: err
     });
 });
-
 // listen on a port
 var port = 3000;
 app.listen(port, function () {
