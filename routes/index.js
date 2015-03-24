@@ -1,6 +1,9 @@
 var router = require('express').Router();
-
+var dayRouter = require('./days');
+var attractionRouter = require('./attraction');
 var models = require('../models');
+
+router.use('/days', dayRouter);
 
 router.get('/', function (req, res, next) {
     models.Hotel.find({}).exec(function (err, hotels) {
