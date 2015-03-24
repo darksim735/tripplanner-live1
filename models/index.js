@@ -4,10 +4,10 @@ mongoose.connection.on('error', console.error.bind(console, 'connection error:')
 
 var daySchema = new mongoose.Schema({
 // add day schema here
-    number: String,
-    hotel: String,
-    restaurants: [String],
-    thingsToDo: [String]
+    number: Number,
+    hotel: {type: mongoose.Schema.Types.ObjectId, ref: 'Hotel'},
+    restaurants: [{type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant'}],
+    thingsToDo: [{type: mongoose.Schema.Types.ObjectId, ref: 'ThingToDo'}]
 });
 
 var placeSchema = new mongoose.Schema({
