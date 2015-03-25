@@ -36,17 +36,37 @@ dayRouter.get('/', function (req, res, next) {
 */
 
 });
+
 // POST /days
 dayRouter.post('/', function (req, res, next) {
     // creates a new day and serves it as json
+    // when click plus
+
+    models.createCollection('Day',
+        {
+        
+        }
+     );
+
 });
 // GET /days/:id
 dayRouter.get('/:id', function (req, res, next) {
     // serves a particular day as json
+    // when current day is clicked
+
+    models.Day.find({number: req.params.day}, function(err, day){
+        // do something
+        res.json(day);
+    });
+    
+
 });
 // DELETE /days/:id
 dayRouter.delete('/:id', function (req, res, next) {
     // deletes a particular day
+    
+    // red button
+    
 });
 
 dayRouter.use('/:id', attractionRouter);
