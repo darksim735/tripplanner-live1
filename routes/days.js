@@ -14,20 +14,26 @@ dayRouter.get('/', function (req, res, next) {
     // looking in database for the days information
     // and storing locally in variable
 
-    /*
-    db.Day.find(function(err, days){
     
-        if (err) throw err;
-*/
-        res.render('index', {
-                    all_hotels: hotels,
-                    all_restaurants: restaurants,
-                    all_things_to_do: thingsToDo
-//                });
-
+    models.Day.find({}).exec(function(err, days){
+    res.json(days);
 
     });
+     
 
+/*
+  models.Hotel.find({}).exec(function (err, hotels) {
+         models.Restaurant.find({}).exec(function (err, restaurants) {
+              models.ThingToDo.find({}).exec(function (err, thingsToDo) {
+                  res.render('index', {
+                      all_hotels: hotels,
+                      all_restaurants: restaurants,
+                      all_things_to_do: thingsToDo
+                  });
+              });
+          });
+      });  
+*/
 
 });
 // POST /days
