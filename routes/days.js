@@ -42,11 +42,15 @@ dayRouter.post('/', function (req, res, next) {
     // creates a new day and serves it as json
     // when click plus
 
-    models.createCollection('Day',
-        {
-        
-        }
-     );
+
+    var day = new Day();
+    day.save();
+
+//    models.createCollection('Day',
+//        {      
+//        }
+
+     
 
 });
 // GET /days/:id
